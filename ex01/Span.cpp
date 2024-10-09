@@ -30,7 +30,7 @@ unsigned int    Span::shortestSpan(){
     unsigned int minDis = UINT32_MAX;
     unsigned int temp;
     for (unsigned int i = 0; i < len; i++){
-        for (unsigned int j = 1; j < len; j++){
+        for (unsigned int j = 1; i+j < len; j++){
             temp = abs(vec[i] - vec[i+j]);
             if (temp < minDis)
                 minDis = temp;
@@ -44,9 +44,10 @@ unsigned int Span::longestSpan(){
             - *std::min_element(vec.begin(), vec.end()));
 }
 
-// need to use range (begin() or end()) but can they count reserved space without number??
 void    Span::fillVector(){
-    for (int i = 0; i < len; i++){
-        vec[i] = 
+    for (unsigned int i = 0; i < len; i++){
+        vec.push_back(rand()% INT16_MAX + 1);
+        // std::cout << vec[i] << " ";
     }
+    // std::cout << "\n";
 }

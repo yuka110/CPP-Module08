@@ -5,11 +5,10 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <cstdlib>
 
 #include <algorithm>
 #include <vector>
-#include <deque>
-#include <list>
 
 #define BOLD "\033[1m"
 #define RES "\033[0m"
@@ -34,6 +33,7 @@ public:
     ~Span();
     Span(const Span& s);
     Span&           operator=(const Span& s);
+    std::vector<int>   getVec(){ return vec;}
     void            addNumber(int n);
     unsigned int    shortestSpan();
     unsigned int    longestSpan();

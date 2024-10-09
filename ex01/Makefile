@@ -1,6 +1,6 @@
 NAME	=span
 CC		=c++
-CFLAGS	=-Wall -Werror -Wextra -std=c++11 -g #-fsanitize=leak
+CFLAGS	=-Wall -Werror -Wextra -std=c++11 -g -fsanitize=address
 RM		=rm -f
 SRC		=main.cpp Span.cpp
 OBJ		=$(SRC:%.cpp=obj/%.o)
