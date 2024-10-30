@@ -9,6 +9,9 @@
 
 #include <algorithm>
 #include <stack>
+#include <deque>
+#include <iterator>
+
 
 #define BOLD "\033[1m"
 #define RES "\033[0m"
@@ -21,19 +24,33 @@
 #define WHI "\033[37m"
 
 
-
-class MutantStack : public std::{
+template<typename T, typename Container = std::deque<T>>
+class MutantStack : public std::stack<T>{
 private:
-    std::stack<int> stack;
-
+    
 public:
     MutantStack();
-    MutantStack(unsigned int N);
     ~MutantStack();
     MutantStack(const MutantStack& s);
     MutantStack&    operator=(const MutantStack& m);
 
+    using iterator = typename Container::iterator;
+    iterator begin();
+    iterator end();
+
+    using const_iterator = typename Container::const_iterator;
+    const_iterator cbegin();
+    const_iterator cend();
+
+    using reverse_iterator = typename Container::reverse_iterator;
+    reverse_iterator rbegin();
+    reverse_iterator rend();
+
+    using const_reverse_iterator = typename Container::const_reverse_iterator;
+    const_reverse_iterator crbegin();
+    const_reverse_iterator crend();
 };
 
+#include "MutantStack.tpp"
 
 #endif
